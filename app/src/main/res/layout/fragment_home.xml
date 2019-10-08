@@ -8,7 +8,19 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lnLayout"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp"
+        android:layout_weight="1"
+        android:text="@string/text_select_time" />
+
     <LinearLayout
+        android:id="@+id/lnLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_sleep"
@@ -23,7 +35,8 @@
             android:layout_alignLeft="@+id/button_sleep"
             android:layout_alignParentTop="false"
             android:scrollbarSize="10dp"
-            android:theme="@style/NumberPicker"></NumberPicker>
+            android:theme="@style/NumberPicker"
+            android:descendantFocusability="blocksDescendants"></NumberPicker>
 
         <TextView
             android:id="@+id/textView"
@@ -43,7 +56,9 @@
             android:layout_alignParentBottom="false"
             android:layout_weight="1"
             android:scrollbarSize="10dp"
-            android:theme="@style/NumberPicker"></NumberPicker>
+            android:theme="@style/NumberPicker"
+            android:descendantFocusability="blocksDescendants"></NumberPicker>
+
     </LinearLayout>
 
     <Button
@@ -53,6 +68,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/rounded_layout"
         android:text="NGỦ" />
 

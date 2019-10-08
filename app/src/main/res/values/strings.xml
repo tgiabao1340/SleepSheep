@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">SleepManager</string>
+    <string name="app_name">SleepSheep</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_select_time">Chọn thời gian bạn muốn thức</string>
 </resources>

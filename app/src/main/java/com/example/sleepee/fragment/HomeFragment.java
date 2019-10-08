@@ -49,15 +49,12 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), SleepActivity.class);
                 int hour = Integer.parseInt(hour_data[hours_picker.getValue()]);
                 int minute = Integer.parseInt(minute_data[ minutes_picker.getValue()]);
-                Calendar calendar_start = Calendar.getInstance();
-                Calendar calendar_end = Calendar.getInstance();
-                calendar_end.set(Calendar.HOUR,hour);
-                calendar_end.set(Calendar.MINUTE,minute);
-                if(calendar_start.compareTo(calendar_end)>0){
-                    calendar_end.add(Calendar.DATE,1);
-                }
-                Long timeSleep = calendar_end.getTime().getTime() - calendar_start.getTime().getTime();
-                intent.putExtra("timeSleep",timeSleep);
+                Calendar startTime = Calendar.getInstance();
+                Calendar endTime = Calendar.getInstance();
+                endTime.set(Calendar.HOUR_OF_DAY,hour);
+                endTime.set(Calendar.MINUTE,minute);
+                intent.putExtra("START_TIME",startTime.getTime().getTime());
+                intent.putExtra("END_TIME",endTime.getTime().getTime());
                 startActivity(intent);
             }
         });
