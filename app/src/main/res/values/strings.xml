@@ -4,4 +4,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_select_time">Chọn thời gian bạn muốn thức</string>
+    <string name="pick_time">Thời gian mà bạn nên thức</string>
+    <string name="suggest_text_1">Thời gian bạn chọn không tốt để thức dậy!</string>
+    <string name="suggest_text_2">Bạn có thể chọn các giờ dưới đây</string>
+    <string name="suggest_text_3">Bạn vẫn muốn thức vào giờ đã chọn ?</string>
+    <string name="button_hold_to_stop">Đã thức</string>
+    <string name="slide_to_stop">Vuốt để kết thúc hoạt động</string>
+
 </resources>
