@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_margin="5dp"
-        android:background="#393e46"
+        android:background="#00393E46"
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"

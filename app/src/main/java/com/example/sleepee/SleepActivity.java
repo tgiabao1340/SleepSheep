@@ -16,21 +16,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ncorti.slidetoact.SlideToActView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class SleepActivity extends AppCompatActivity {
-    private TextView textView_time;
-    private SlideToActView slideToActStop;
     private final int TIMEOFCYCLE = 90; // 90 min
     private final int MAXCYCLE = 5;
     private final int MINCYCLE = 3;
-    private int TIMETOFALLASLEEP = 14; // 14 min
-    private long START_TIME, END_TIME, TOTAL_TIME;
+    private final int TAB_TODAY = 1;
+    private final int TIMETOFALLASLEEP = 14; // 14 min
+
+    private TextView textView_time;
+    private SlideToActView slideToActStop;
+    private long startTime, maxTime;
+
     private AlarmManager alarmManager;
     private PendingIntent pendingIntent;
 
@@ -42,42 +43,27 @@ public class SleepActivity extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = getIntent();
         if (intent != null) if (intent.hasExtra("START_TIME") && intent.hasExtra("END_TIME")) {
-            START_TIME = intent.getLongExtra("START_TIME", 0);
-            END_TIME = intent.getLongExtra("END_TIME", 0);
-            Calendar cal = Calendar.getInstance();
-            if ((new Date(START_TIME).compareTo(new Date(END_TIME))) > 0) {
-                cal.setTimeInMillis(END_TIME);
+            startTime = intent.getLongExtra("START_TIME", 0);
+            maxTime = intent.getLongExtra("END_TIME", 0);
+
+            if ((new Date(startTime).compareTo(new Date(maxTime))) > 0) {
+                Calendar cal = convertCalendar(maxTime);
                 cal.add(Calendar.DATE, 1);
-                END_TIME = cal.getTimeInMillis();
+                maxTime = cal.getTimeInMillis();
             }
-            TOTAL_TIME = Math.abs(END_TIME - START_TIME - TIMETOFALLASLEEP * 60 * 1000);
-            Calendar calStartTime = Calendar.getInstance();
-            Calendar calEndTime = Calendar.getInstance();
-            Calendar calTimeMin = Calendar.getInstance();
-            Calendar calWakeTime = Calendar.getInstance();
-            calStartTime.setTimeInMillis(START_TIME);
-            calEndTime.setTimeInMillis(END_TIME);
-            calTimeMin.setTimeInMillis(END_TIME);
-            calWakeTime.setTimeInMillis(timeWake(START_TIME, calculateCycle(TOTAL_TIME)));
-            calTimeMin.add(Calendar.MINUTE, -30);
-            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-            if (calculateCycle(TOTAL_TIME) < MINCYCLE || calculateCycle(TOTAL_TIME) > MAXCYCLE) {
-                List<Long> list = new ArrayList<>();
-                for (int i = MINCYCLE; i < MAXCYCLE + 1; i++) {
-                    list.add(timeWake(START_TIME, i));
-                }
-                showDialog(list, END_TIME);
+            long totalTime = totalTime(startTime, maxTime);
+            if (calculateCycle(totalTime) < MINCYCLE || calculateCycle(totalTime) > MAXCYCLE) {
+                showDialog(listTimesAlarm(startTime), maxTime);
             } else {
-                Calendar timeforAlarm = Calendar.getInstance();
-                timeforAlarm.setTimeInMillis(timeWake(START_TIME, calculateCycle(TOTAL_TIME)));
+                Calendar timeforAlarm = convertCalendar(timeWake(startTime, calculateCycle(totalTime)));
                 setAlarm(timeforAlarm);
             }
         }
-
         slideToActStop = findViewById(R.id.slideActToStop);
         slideToActStop.setOnSlideCompleteListener(new SlideToActView.OnSlideCompleteListener() {
             @Override
             public void onSlideComplete(SlideToActView slideToActView) {
+                MainActivity.getInstance().selectTab(TAB_TODAY);
                 cancelAlarm();
                 finish();
             }
@@ -85,9 +71,16 @@ public class SleepActivity extends AppCompatActivity {
 
     }
 
+    public Calendar convertCalendar(long time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+        return calendar;
+    }
+
+
     @Override
     public void onBackPressed() {
-
+        //Do nothing :)))
     }
 
     public void setAlarm(Calendar calendar) {
@@ -144,6 +137,18 @@ public class SleepActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    public List<Long> listTimesAlarm(long startTime) {
+        List<Long> list = new ArrayList<>();
+        for (int i = MINCYCLE; i < MAXCYCLE + 1; i++) {
+            list.add(timeWake(startTime, i));
+        }
+        return list;
+    }
+
+    public long totalTime(long startTime, long maxTime) {
+        return Math.abs(maxTime - startTime - TIMETOFALLASLEEP * 60 * 1000);
     }
 
     public long timeWake(long startTime, int cycle) {

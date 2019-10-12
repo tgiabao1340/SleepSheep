@@ -1,36 +1,46 @@
 package com.example.sleepee.model;
 
-import java.util.Date;
-
 public class Sleep {
-    private Date time_gotoBed;
-    private Date time_wakeup;
+    private long startTime;
+    private long maxTime;
+    private long actualTime;
     private int cycle;
-    public Sleep(Date time_gotoBed){
-        this.time_gotoBed = time_gotoBed;
-    }
 
-    public Date getTime_gotoBed() {
-        return time_gotoBed;
-    }
-
-    public Date getTime_wakeup() {
-        return time_wakeup;
-    }
-
-    public void setTime_gotoBed(Date time_gotoBed) {
-        this.time_gotoBed = time_gotoBed;
-    }
-
-    public void setTime_wakeup(Date time_wakeup) {
-        this.time_wakeup = time_wakeup;
+    public Sleep(long startTime, long maxTime, int cycle) {
+        this.startTime = startTime;
+        this.maxTime = maxTime;
+        this.cycle = cycle;
     }
 
     public int getCycle() {
         return cycle;
     }
 
+    public long getActualTime() {
+        return actualTime;
+    }
+
+    public long getMaxTime() {
+        return maxTime;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setActualTime(long actualTime) {
+        this.actualTime = actualTime;
+    }
+
     public void setCycle(int cycle) {
         this.cycle = cycle;
+    }
+
+    public void setMaxTime(long maxTime) {
+        this.maxTime = maxTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
     }
 }

@@ -3,31 +3,28 @@ package com.example.sleepee.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.sleepee.R;
 import com.example.sleepee.SleepActivity;
 
 import java.util.Calendar;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment {
-
+    private final String[] hour_data = new String[]{"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"};
+    private final String[] minute_data = new String[]{"00", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"};
     private NumberPicker hours_picker;
     private NumberPicker minutes_picker;
-    private String[] hour_data = new String[]{"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11","12","13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"};
-    private String[] minute_data = new String[]{"00", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"};
     private Button button_sleep;
+
     public HomeFragment() {
+
     }
 
     @Override
@@ -37,10 +34,10 @@ public class HomeFragment extends Fragment {
         hours_picker = view.findViewById(R.id.hours_picker);
         minutes_picker = view.findViewById(R.id.minutes_picker);
         hours_picker.setMinValue(0);
-        hours_picker.setMaxValue(hour_data.length-1);
+        hours_picker.setMaxValue(hour_data.length - 1);
         hours_picker.setDisplayedValues(hour_data);
         minutes_picker.setMinValue(0);
-        minutes_picker.setMaxValue(minute_data.length-1);
+        minutes_picker.setMaxValue(minute_data.length - 1);
         minutes_picker.setDisplayedValues(minute_data);
         button_sleep = view.findViewById(R.id.button_sleep);
         button_sleep.setOnClickListener(new View.OnClickListener() {
@@ -48,13 +45,13 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), SleepActivity.class);
                 int hour = Integer.parseInt(hour_data[hours_picker.getValue()]);
-                int minute = Integer.parseInt(minute_data[ minutes_picker.getValue()]);
+                int minute = Integer.parseInt(minute_data[minutes_picker.getValue()]);
                 Calendar startTime = Calendar.getInstance();
                 Calendar endTime = Calendar.getInstance();
-                endTime.set(Calendar.HOUR_OF_DAY,hour);
-                endTime.set(Calendar.MINUTE,minute);
-                intent.putExtra("START_TIME",startTime.getTime().getTime());
-                intent.putExtra("END_TIME",endTime.getTime().getTime());
+                endTime.set(Calendar.HOUR_OF_DAY, hour);
+                endTime.set(Calendar.MINUTE, minute);
+                intent.putExtra("START_TIME", startTime.getTime().getTime());
+                intent.putExtra("END_TIME", endTime.getTime().getTime());
                 startActivity(intent);
             }
         });

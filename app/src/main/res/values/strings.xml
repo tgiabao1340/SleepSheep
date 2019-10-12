@@ -10,5 +10,5 @@
     <string name="suggest_text_3">Bạn vẫn muốn thức vào giờ đã chọn ?</string>
     <string name="button_hold_to_stop">Đã thức</string>
     <string name="slide_to_stop">Vuốt để kết thúc hoạt động</string>
-
+    <string name="some_thing_went_wrong">Lỗi không truy cập được địa điểm của bạn</string>
 </resources>
