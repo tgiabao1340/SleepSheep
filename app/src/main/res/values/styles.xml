@@ -11,20 +11,33 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        
+
     </style>
+
     <style name="SplashscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
+
     <style name="NumberPicker">
         <item name="android:textSize">36sp</item>
-        <item name="android:textColorPrimary">#fafafa</item>
+        <item name="android:textColorPrimary">@color/mainWhite</item>
     </style>
+
     <style name="DialogCustomTheme" parent="android:Theme.Holo.Dialog.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
+
     <style name="ButtonTheme">
 
     </style>
+
+    <style name="infoTheme" parent="android:Theme">
+        <item name="android:textViewStyle">@style/TextStyle</item>
+    </style>
+
+    <style name="TextStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/mainWhite</item>
+    </style>
+
 </resources>

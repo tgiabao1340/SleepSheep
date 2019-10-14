@@ -10,8 +10,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/sleep_bg"
-        android:scaleType="centerCrop"/>
+        android:background="@drawable/sleep_bg"
+        android:scaleType="centerCrop" />
 
     <TextClock
         android:id="@+id/textClock"
@@ -21,9 +21,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="124dp"
-        android:format12Hour="hh:mm:ss a"
+        android:format12Hour="hh:mm a"
         android:text="00:00"
-        android:textColor="#eeeeee"
+        android:textColor="@color/mainWhite"
         android:textSize="48dp" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="#EEEEEE"
+        android:textColor="@color/mainWhite"
         android:textSize="36sp" />
 
     <com.ncorti.slidetoact.SlideToActView
@@ -49,8 +49,8 @@
         android:paddingRight="20dp"
         app:area_margin="4dp"
         app:border_radius="2dp"
-        app:inner_color="#393e46"
-        app:outer_color="#77EEEEEE"
+        app:inner_color="@color/mainGray"
+        app:outer_color="@color/mainWhite"
         app:slider_height="80dp"
         app:slider_locked="false"
         app:text="@string/slide_to_stop"

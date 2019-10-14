@@ -47,7 +47,7 @@
             android:gravity="center"
             android:paddingBottom="6dp"
             android:text=":"
-            android:textColor="#1976D2"
+            android:textColor="@color/mainWhite"
             android:textSize="36sp" />
 
         <NumberPicker
@@ -71,6 +71,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginBottom="120dp"
         android:background="@drawable/rounded_layout"
-        android:text="NGỦ" />
+        android:text="NGỦ"
+        android:textColor="@color/mainDark" />
 
 </RelativeLayout>

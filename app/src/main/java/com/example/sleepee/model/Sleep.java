@@ -1,14 +1,22 @@
 package com.example.sleepee.model;
 
+import androidx.annotation.NonNull;
+
 public class Sleep {
     private long startTime;
-    private long maxTime;
-    private long actualTime;
+    private long endTime;
+    private long duration;
     private int cycle;
 
-    public Sleep(long startTime, long maxTime, int cycle) {
+    public Sleep(long startTime, int cycle) {
         this.startTime = startTime;
-        this.maxTime = maxTime;
+        this.cycle = cycle;
+    }
+
+    public Sleep(long startTime, long endTime, long duration, int cycle) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.duration = duration;
         this.cycle = cycle;
     }
 
@@ -16,31 +24,37 @@ public class Sleep {
         return cycle;
     }
 
-    public long getActualTime() {
-        return actualTime;
+    public long getDuration() {
+        return duration;
     }
 
-    public long getMaxTime() {
-        return maxTime;
+    public long getEndTime() {
+        return endTime;
     }
 
     public long getStartTime() {
         return startTime;
     }
 
-    public void setActualTime(long actualTime) {
-        this.actualTime = actualTime;
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 
     public void setCycle(int cycle) {
         this.cycle = cycle;
     }
 
-    public void setMaxTime(long maxTime) {
-        this.maxTime = maxTime;
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
     }
 
     public void setStartTime(long startTime) {
         this.startTime = startTime;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "startTime: " + startTime;
     }
 }

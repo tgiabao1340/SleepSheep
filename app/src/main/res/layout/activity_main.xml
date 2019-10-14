@@ -8,15 +8,16 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/bg_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:srcCompat="@mipmap/back_ground" />
+        android:background="@drawable/main_layer_bg" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -24,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/pager"
         android:layout_marginBottom="64dp"
-        app:tabIndicatorColor="#fafafa"
-        app:tabSelectedTextColor="#FAFAFA"
-        app:tabTextColor="#c7eeff" />
+        app:tabIndicatorColor="@color/mainWhite"
+        app:tabSelectedTextColor="@color/mainLightBlue"
+        app:tabTextColor="@color/mainWhite" />
 
 </RelativeLayout>

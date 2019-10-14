@@ -15,6 +15,9 @@ import com.example.sleepee.fragment.TodayFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
+    public final static int TAB_SLEEP = 0;
+    public final static int TAB_TODAY = 1;
+    public final static int TAB_INFO = 2;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private static MainActivity instance;
@@ -29,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
-
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.pager);
         setupViewPager();
@@ -39,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new HomeFragment(), "NGỦ NÈ");
-        adapter.addFragment(new TodayFragment(), "HÔM NAY");
-        adapter.addFragment(new ProfileFragment(), "THÔNG TIN");
+        adapter.addFragment(new HomeFragment(), getString(R.string.tab_name_sleep));
+        adapter.addFragment(new TodayFragment(), getString(R.string.tab_name_today));
+        adapter.addFragment(new ProfileFragment(), getString(R.string.tab_name_profile));
         viewPager.setAdapter(adapter);
     }
 
