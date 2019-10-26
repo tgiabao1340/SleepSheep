@@ -38,6 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="#ffffff"
                     android:text="Time of Sleep"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -47,6 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="#ffffff"
                     android:text="0"
                     android:textSize="16sp"
                     android:textStyle="bold" />

@@ -41,7 +41,6 @@ public class ProfileFragment extends Fragment {
         db.createDefault();
         ListView listView = view.findViewById(R.id.lvSleep);
         ArrayList<Sleep> list = new ArrayList<>(db.getAllSleeps());
-        //list.add(new Sleep(10000000, 20000000, 10000000, 100));
         SleepListAdapter adapter = new SleepListAdapter(getActivity(), R.layout.sleep_list_view, list);
         listView.setAdapter(adapter);
 //        BarChart chart = view.findViewById(R.id.barchart);
@@ -85,7 +84,7 @@ public class ProfileFragment extends Fragment {
         for (Sleep sleep : listSleep) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(sleep.getStartTime());
-            list.add(calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + "T:" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
+            list.add(calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + " " + ((calendar.get(Calendar.AM_PM) == Calendar.AM) ? "AM" : "PM"));
         }
         return list;
     }

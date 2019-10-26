@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/sleep_bg"
+        android:background="@drawable/background_02"
         android:scaleType="centerCrop" />
 
     <TextClock
@@ -49,8 +49,8 @@
         android:paddingRight="20dp"
         app:area_margin="4dp"
         app:border_radius="2dp"
-        app:inner_color="@color/mainGray"
-        app:outer_color="@color/mainWhite"
+        app:inner_color="@color/secGray"
+        app:outer_color="#E1EEEEEE"
         app:slider_height="80dp"
         app:slider_locked="false"
         app:text="@string/slide_to_stop"

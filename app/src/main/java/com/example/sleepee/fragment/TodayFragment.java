@@ -63,6 +63,13 @@ public class TodayFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String result) {
+            if (result == null) {
+                loader.setVisibility(View.GONE);
+                errorDisplay.setVisibility(View.VISIBLE);
+                errorText.setVisibility(View.VISIBLE);
+                button_reuest_gps.setVisibility(View.VISIBLE);
+                return;
+            }
             try {
                 JSONObject jsonObj = new JSONObject(result);
                 JSONObject main = jsonObj.getJSONObject("main");
@@ -72,8 +79,8 @@ public class TodayFragment extends Fragment {
                 Long updatedAt = jsonObj.getLong("dt");
                 String updatedAtText = getString(R.string.update_at) + " : " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
                 String temp = main.getString("temp") + "°C";
-                String tempMin = getString(R.string.min_temp) + " :\n" + main.getString("temp_min") + "°C";
-                String tempMax = getString(R.string.max_temp) + " :\n" + main.getString("temp_max") + "°C";
+                String tempMin = getString(R.string.min_temp) + "\n" + main.getString("temp_min") + "°C";
+                String tempMax = getString(R.string.max_temp) + "\n" + main.getString("temp_max") + "°C";
                 String pressure = main.getString("pressure");
                 String humidity = main.getString("humidity");
                 Long sunrise = sys.getLong("sunrise");
@@ -140,7 +147,7 @@ public class TodayFragment extends Fragment {
         });
         GPSTracker gps = new GPSTracker(getActivity());
         location = gps.getLocation();
-        new weatherTask().execute();
+        reloadWeatherDisplay();
         return view;
     }
 

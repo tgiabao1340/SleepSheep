@@ -18,8 +18,9 @@
             android:id="@+id/addressContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:background="@color/secGray"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/address"
@@ -46,8 +47,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="164dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="100dp"
+            android:orientation="vertical"
+            android:background="@color/secGray">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,7 +61,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -94,7 +95,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -137,7 +137,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -172,7 +171,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -207,7 +205,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -246,14 +244,17 @@
             android:id="@+id/overviewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:background="@color/secGray"
+            android:layout_above="@+id/detailsContainer"
+            android:layout_below="@+id/addressContainer"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="64dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -311,6 +312,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_centerInParent="true"
         android:visibility="gone">
 
@@ -322,9 +324,12 @@
             android:text="@string/some_thing_went_wrong" />
 
         <Button
+            android:layout_marginTop="12dp"
             android:id="@+id/button_request_gps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textColor="@color/mainDark"
+            android:background="@drawable/rounded_layout"
             android:visibility="gone"
             android:text="@string/request_gps"></Button>
     </LinearLayout>

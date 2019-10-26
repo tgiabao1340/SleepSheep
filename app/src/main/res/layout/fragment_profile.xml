@@ -13,10 +13,25 @@
         android:layout_height="match_parent"
         android:layout_margin="15dp">
 
-        <ListView
-            android:id="@+id/lvSleep"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_list_sleep"
+                android:textColor="@color/mainWhite"
+                android:textSize="18sp" />
+
+            <ListView
+                android:id="@+id/lvSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
     </RelativeLayout>
 
 </RelativeLayout>

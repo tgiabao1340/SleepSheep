@@ -114,8 +114,6 @@ public class SleepDatabaseHelper extends SQLiteOpenHelper {
                 listSleep.add(sleep);
             } while (cursor.moveToNext());
         }
-
-        // return note list
         return listSleep;
     }
 
@@ -133,8 +131,6 @@ public class SleepDatabaseHelper extends SQLiteOpenHelper {
                 listSleep.add(sleep);
             } while (cursor.moveToNext());
         }
-
-        // return note list
         return listSleep;
     }
 
