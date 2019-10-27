@@ -23,5 +23,5 @@
     <string name="max_temp">Cao</string>
     <string name="update_at">Cập nhật lúc</string>
     <string name="request_gps">Thử lại</string>
-    <string name="title_list_sleep">Lịch sử ngủ</string>
+    <string name="title_list_sleep">Lịch sử ngủ gần đây</string>
 </resources>

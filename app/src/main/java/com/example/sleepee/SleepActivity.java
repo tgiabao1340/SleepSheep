@@ -57,7 +57,6 @@ public class SleepActivity extends AppCompatActivity {
         if (intent != null) if (intent.hasExtra("START_TIME") && intent.hasExtra("END_TIME")) {
             startTime = intent.getLongExtra("START_TIME", 0);
             endTime = intent.getLongExtra("END_TIME", 0);
-
             if ((new Date(startTime).compareTo(new Date(endTime))) > 0) {
                 Calendar cal = convertCalendar(endTime);
                 cal.add(Calendar.DATE, 1);
@@ -71,7 +70,6 @@ public class SleepActivity extends AppCompatActivity {
                 Calendar timeforAlarm = convertCalendar(timeWake(startTime, cycle));
                 setAlarm(timeforAlarm);
             }
-
         }
         SlideToActView slideToActStop = findViewById(R.id.slideActToStop);
         slideToActStop.setOnSlideCompleteListener(new SlideToActView.OnSlideCompleteListener() {
@@ -104,6 +102,7 @@ public class SleepActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //Do nothing :)))
+
     }
 
     @SuppressLint("DefaultLocale")

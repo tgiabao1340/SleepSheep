@@ -104,7 +104,7 @@ public class SleepDatabaseHelper extends SQLiteOpenHelper {
         Log.i(TAG, "SleepDatabaseHelper.getAllSleep ... ");
 
         List<Sleep> listSleep = new ArrayList<>();
-        String selectQuery = "SELECT  * FROM " + TABLE_SLEEP + " DECS";
+        String selectQuery = "SELECT  * FROM " + TABLE_SLEEP + " ORDER BY " + COLUMN_SLEEP_START_TIME + " DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
