@@ -33,7 +33,7 @@ public class TodayFragment extends Fragment {
     private String API = "b5a75f6145f44beb9e3c6018e670b18d";
     private TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
             sunsetTxt, windTxt, pressureTxt, humidityTxt;
-    private Button button_reuest_gps;
+    private Button button_request_gps;
     private LinearLayout errorDisplay;
     private TextView errorText;
     private RelativeLayout mainCotainer;
@@ -67,7 +67,7 @@ public class TodayFragment extends Fragment {
                 loader.setVisibility(View.GONE);
                 errorDisplay.setVisibility(View.VISIBLE);
                 errorText.setVisibility(View.VISIBLE);
-                button_reuest_gps.setVisibility(View.VISIBLE);
+                button_request_gps.setVisibility(View.VISIBLE);
                 return;
             }
             try {
@@ -106,7 +106,7 @@ public class TodayFragment extends Fragment {
                 loader.setVisibility(View.GONE);
                 errorDisplay.setVisibility(View.VISIBLE);
                 errorText.setVisibility(View.VISIBLE);
-                button_reuest_gps.setVisibility(View.VISIBLE);
+                button_request_gps.setVisibility(View.VISIBLE);
             }
 
         }
@@ -138,8 +138,8 @@ public class TodayFragment extends Fragment {
         mainCotainer = view.findViewById(R.id.mainContainer);
         errorDisplay = view.findViewById(R.id.errorDisplay);
         errorText = view.findViewById(R.id.errorText);
-        button_reuest_gps = view.findViewById(R.id.button_request_gps);
-        button_reuest_gps.setOnClickListener(new View.OnClickListener() {
+        button_request_gps = view.findViewById(R.id.button_request_gps);
+        button_request_gps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reloadWeatherDisplay();

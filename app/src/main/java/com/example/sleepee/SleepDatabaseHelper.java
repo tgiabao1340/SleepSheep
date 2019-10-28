@@ -54,14 +54,17 @@ public class SleepDatabaseHelper extends SQLiteOpenHelper {
         int count = this.getSleepCount();
         if (count == 0) {
             Calendar calendar = Calendar.getInstance();
-            Sleep sleep1 = new Sleep(10000000, 20000000, 10000000, 100);
+            calendar.add(Calendar.DATE, -1);
+            Sleep sleep2 = new Sleep(calendar.getTimeInMillis(), 20000000, 25000000, 4);
+            calendar.add(Calendar.DATE, -1);
+            Sleep sleep1 = new Sleep(calendar.getTimeInMillis(), 20000000, 30000000, 4);
+
 //            Sleep sleep2 = new Sleep(10000000, 20000000, 10000000, 100);
 //            Sleep sleep3 = new Sleep(10000000, 20000000, 10000000, 100);
 //            Sleep sleep4 = new Sleep(10000000, 20000000, 10000000, 100);
 //            Sleep sleep5 = new Sleep(10000000, 20000000, 10000000, 100);
-
             this.addSleep(sleep1);
-//            this.addSleep(sleep2);
+            this.addSleep(sleep2);
 //            this.addSleep(sleep3);
 //            this.addSleep(sleep4);
 //            this.addSleep(sleep5);
@@ -99,8 +102,24 @@ public class SleepDatabaseHelper extends SQLiteOpenHelper {
         return sleep;
     }
 
-
     public List<Sleep> getAllSleeps() {
+        Log.i(TAG, "SleepDatabaseHelper.getAllSleep ... ");
+
+        List<Sleep> listSleep = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + TABLE_SLEEP;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Sleep sleep = new Sleep(cursor.getLong(0), cursor.getLong(1), cursor.getLong(2), cursor.getInt(3));
+                listSleep.add(sleep);
+            } while (cursor.moveToNext());
+        }
+        return listSleep;
+    }
+
+    public List<Sleep> getAllSleepsDesc() {
         Log.i(TAG, "SleepDatabaseHelper.getAllSleep ... ");
 
         List<Sleep> listSleep = new ArrayList<>();
