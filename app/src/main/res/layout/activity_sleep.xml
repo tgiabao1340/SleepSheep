@@ -49,7 +49,7 @@
         android:paddingRight="20dp"
         app:area_margin="4dp"
         app:border_radius="2dp"
-        app:inner_color="@color/secGray"
+        app:inner_color="#2B2B2B"
         app:outer_color="#E1EEEEEE"
         app:slider_height="80dp"
         app:slider_locked="false"

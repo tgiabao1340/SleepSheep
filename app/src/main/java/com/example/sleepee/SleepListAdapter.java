@@ -12,8 +12,10 @@ import androidx.annotation.Nullable;
 
 import com.example.sleepee.model.Sleep;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class SleepListAdapter extends ArrayAdapter<Sleep> {
@@ -46,10 +48,9 @@ public class SleepListAdapter extends ArrayAdapter<Sleep> {
         Sleep sleep = arrSleep.get(position);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(sleep.getStartTime());
-        viewHolder.tv_StartTime.setText(String.format("%02d/%02d\nT: %02d:%02d", calendar.get(Calendar.DAY_OF_MONTH) + 1, calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE)));
-        Calendar dur = Calendar.getInstance();
-        dur.setTimeInMillis(sleep.getDuration());
-        viewHolder.tv_Duration.setText(String.format("%02dh%02dm", dur.get(Calendar.HOUR_OF_DAY), dur.get(Calendar.MINUTE)));
+        viewHolder.tv_StartTime.setText(String.format("%02d/%02d\n %02d:%02d", calendar.get(Calendar.DAY_OF_MONTH) + 1, calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE)));
+        viewHolder.tv_Duration.setText((new SimpleDateFormat("HH:mm")).format(new Date(sleep.getDuration())));
+        //viewHolder.tv_Duration.setText(String.format("%02dh%02dm", dur.get(Calendar.HOUR), dur.get(Calendar.MINUTE)));
         viewHolder.tv_Cycle.setText("" + sleep.getCycle());
         return convertView;
     }

@@ -55,9 +55,9 @@ public class SleepDatabaseHelper extends SQLiteOpenHelper {
         if (count == 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DATE, -1);
-            Sleep sleep2 = new Sleep(calendar.getTimeInMillis(), 20000000, 25000000, 4);
+            Sleep sleep2 = new Sleep(calendar.getTimeInMillis(), 20000000, 45000000, 4);
             calendar.add(Calendar.DATE, -1);
-            Sleep sleep1 = new Sleep(calendar.getTimeInMillis(), 20000000, 30000000, 4);
+            Sleep sleep1 = new Sleep(calendar.getTimeInMillis(), 20000000, 45000000, 4);
 
 //            Sleep sleep2 = new Sleep(10000000, 20000000, 10000000, 100);
 //            Sleep sleep3 = new Sleep(10000000, 20000000, 10000000, 100);

@@ -15,6 +15,7 @@ import com.example.sleepee.model.Sleep;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -41,6 +42,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         db = new SleepDatabaseHelper(getContext());
+        //db.deleteDatabase(getContext());
         db.createDefault();
         ListView listView = view.findViewById(R.id.lvSleep);
         LineChart lineChart = view.findViewById(R.id.lineChartSleep);
@@ -54,6 +56,8 @@ public class ProfileFragment extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setLabelCount(4, true);
         xAxis.setGranularity(2f);
+        YAxis yAxisRight = lineChart.getAxisRight();
+        yAxisRight.setDrawLabels(false);
         ValueFormatter valueFormatter = new ValueFormatter() {
             @Override
             public String getAxisLabel(float value, AxisBase axis) {
@@ -64,6 +68,8 @@ public class ProfileFragment extends Fragment {
         };
         xAxis.setValueFormatter(valueFormatter);
         LineData lineData = new LineData(lineDataSet);
+        lineChart.setPinchZoom(false);
+        lineChart.setDragEnabled(false);
         lineChart.setData(lineData);
         lineChart.notifyDataSetChanged();
         lineChart.invalidate();
